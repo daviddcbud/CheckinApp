@@ -5,7 +5,7 @@ angular.module(myAppName).config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider.otherwise( {
-        templateUrl: '/app/home/index.html',
+        templateUrl: '/app/home/mock.index.html',
         controller: 'HomeCtrl',
     });
 
@@ -16,8 +16,11 @@ angular.module(myAppName).config(function ($routeProvider, $locationProvider) {
     }
     function createRoutes() {
         var routes = [];
-        var route = new Route('/', '/app/home/index.html', 'HomeCtrl');
+        var route = new Route('/', '/app/home/mock.index.html', 'HomeCtrl');
         routes.push(route);
+         var route = new Route('/mock', '/app/home/mock.index.html', 'HomeCtrl');
+        routes.push(route);
+        
         route = new Route('/myPage', '/app/feature1/myPage.html', '');
         routes.push(route);
         return routes;
