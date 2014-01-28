@@ -1,3 +1,43 @@
-﻿ {{model.testing}}
+﻿<div>
+    <input id="searchBox" type="search" placeholder="Enter last name or number" ng-model="model.searchData" />
 
-<div ng-repeat="result in model.searchresults">{{name}}</div>
+</div>
+
+
+<table class="table table-striped table-condensed table-responsive">
+    <thead>
+        <tr>
+            
+            <th>Family Name</th>
+            <th>Number</th>
+            <th></th>
+            <th></th> 
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="result in model.searchResults">
+            
+            <td>{{result.name}}</td>
+            <td>{{result.number}}</td>
+            <td>
+                <div class="row" ng-repeat="child in result.children">
+                    <div class="col-md-2">{{child.name}}</div>
+                    <div class="col-md-2">{{child.grade}}</div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="checkbox" />1st Hour?
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>
+                            <input type="checkbox" />2nd Hour?
+                        </label>
+                    </div>
+                    </div>
+                
+            </td>
+            <th><a  target="_blank" ng-href="/Home/Print/{{result.id}}" class="btn">Print</a></th>
+        </tr>
+    </tbody>
+
+</table>

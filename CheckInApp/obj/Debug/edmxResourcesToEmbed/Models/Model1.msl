@@ -4,8 +4,21 @@
     <EntitySetMapping Name="Families">
       <EntityTypeMapping TypeName="CheckInAppModel.Family">
         <MappingFragment StoreEntitySet="Families">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
           <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Children">
+      <EntityTypeMapping TypeName="CheckInAppModel.Child">
+        <MappingFragment StoreEntitySet="Children">
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FamilyID" ColumnName="FamilyID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CheckInApp.Models.PrintVM>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Print</title>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <style>
+        .outerDiv {
+            width: 2in;
+            height: 3in;
+          
+        }
+        .nameSection {
+           
+            font-size: large;
+            margin: 2px;
+             
+            border-bottom: 2px solid black;
+        }
+        .numberSection {
+            font-size: xx-large;
+            margin: 2px;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+        }
+        .messageSection {
+             
+            margin: 2px;
+            font-weight:bolder; 
+            border-bottom: 2px solid black;
+        }
+        .datetimeSection {
+           
+            font-size: x-small;
+        }
+        .pagebreak {
+            page-break-after: always;
+        }
+    </style>
+</head>
+<body  >
+    @foreach (var item in Model)
+    {
+        <div class="outerDiv pagebreak">
+            <div class="nameSection">
+                @item.Name
+            </div>
+            <div class="numberSection">
+                @item.Number
+            </div>
+            <div class="messageSection">
+                @item.Message
+            </div>
+            <div class="datetimeSection pagebreak">
+                @item.DateTime
+            </div>
+        </div>
+    }
+
+    <script>
+        $(document).ready(function () {
+            $('.outerDiv').last().removeClass('pagebreak');
+            window.print();
+            window.onfocus = function () { window.close(); }
+
+        });
+    </script>
+</body>
+
+</html>

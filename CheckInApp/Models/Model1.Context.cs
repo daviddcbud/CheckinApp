@@ -26,5 +26,6 @@ namespace CheckInApp.Models
         }
     
         public virtual DbSet<Family> Families { get; set; }
+        public virtual DbSet<Child> Children { get; set; }
     }
 }

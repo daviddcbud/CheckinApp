@@ -12,18 +12,14 @@ namespace CheckInApp.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Family
+    public partial class Child
     {
-        public Family()
-        {
-            this.Children = new HashSet<Child>();
-        }
-    
         public int ID { get; set; }
-        public Nullable<int> Number { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
+        public int FamilyID { get; set; }
+        public string Name { get; set; }
+        public string Grade { get; set; }
+        public Nullable<System.DateTime> DOB { get; set; }
     
-        public virtual ICollection<Child> Children { get; set; }
+        public virtual Family Family { get; set; }
     }
 }

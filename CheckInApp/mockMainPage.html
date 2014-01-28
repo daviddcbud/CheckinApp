@@ -4,13 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check-In</title>
-<style rel="stylesheet" src="Content/bootstrap.css"></style>
-    <style rel="stylesheet" src="Content/site.css"></style>
-    <script src="Scripts/modernizr-2.6.1.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet">
+    <link href="Content/site.css" rel="stylesheet">
+     
+    <script src="Scripts/modernizr-2.6.2.js"></script>
 
 </head>
 <body ng-app="appModule">
-  
+    <div wc-overlay wc-overlay-delay="300">
+        <img src="Content/loading.gif" /><br />
+        Loading..
+    </div>
     <div class="container body-content">
           <div ng-view class="slide-animation" id="ng-view">
             

@@ -6,6 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="0a376c82f6b44b36bdb860108115f8c2" Name="Diagram1">
         <EntityTypeShape EntityType="CheckInAppModel.Family" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheckInAppModel.Child" Width="1.5" PointX="3" PointY="4.625" />
+        <AssociationConnector Association="CheckInAppModel.FK_Children_0" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

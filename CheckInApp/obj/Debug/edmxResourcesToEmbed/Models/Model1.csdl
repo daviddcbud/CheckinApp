@@ -5,9 +5,42 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Number" Type="Int32" />
+    <NavigationProperty Name="Children" Relationship="CheckInAppModel.FK_Children_0" FromRole="Family" ToRole="Child" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityContainer Name="CheckInAppEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Families" EntityType="Self.Family" />
+    <EntitySet Name="Children" EntityType="CheckInAppModel.Child" />
+    <AssociationSet Name="FK_Children_0" Association="CheckInAppModel.FK_Children_0">
+      <End Role="Family" EntitySet="Families" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FamilyID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Family" Relationship="CheckInAppModel.FK_Children_0" FromRole="Child" ToRole="Family" />
+  </EntityType>
+  <Association Name="FK_Children_0">
+    <End Type="CheckInAppModel.Family" Role="Family" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="CheckInAppModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Family">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FamilyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

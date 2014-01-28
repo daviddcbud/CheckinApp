@@ -1,18 +1,19 @@
 <div>
   <input type="search" placeholder="Enter last name or number" ng-model="model.searchData"/>
-<button ng-click="search()" class="btn">Search</button>
+ 
 </div>
 
 
 <table class="table table-striped">
-<thead>
-   <tr>
-    <th>Family</th>
-</tr>
+    <thead>
+        <tr>
+            <th>Family Name</th>
+        </tr>
+    </thead>
 <tbody>  
      <tr ng-repeat="result in model.searchResults">
         <td>{{result.name}}</td>
      </tr>
 </tbody>
-</thead>
+
 </table>
