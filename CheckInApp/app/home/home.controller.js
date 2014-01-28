@@ -17,7 +17,7 @@
             }
         });
 
-        var searchService = SearchService;
+        var searchService = mockSearch;
 
         $scope.search = function () {
             $scope.model.searchResults = [];
