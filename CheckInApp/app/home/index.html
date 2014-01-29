@@ -25,14 +25,10 @@
                 <div class="row" ng-repeat="child in result.children">
                     <div class="col-md-2">{{child.name}}</div>
                     <div class="col-md-2">{{child.grade}}</div>
-                    <div class="col-md-3">
+               
+                    <div class="col-md-3" ng-repeat="classn in model.classes" >
                         <label>
-                            <input type="checkbox" />1st Hour?
-                        </label>
-                    </div>
-                    <div class="col-md-3">
-                        <label>
-                            <input type="checkbox" />2nd Hour?
+                            <input type="checkbox" />{{classn.name}}
                         </label>
                     </div>
                     </div>

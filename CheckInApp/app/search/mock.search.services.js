@@ -1,8 +1,8 @@
 
 
 
-angular.module(myAppName).service('mockSearch', ['$q','$log','$timeout',
-function($q,$log,$timeout)
+angular.module(myAppName).service('mockSearch', ['$q','$log','$timeout','$http',
+function($q,$log,$timeout,$http)
 {
     var mockData = [];
     var child = { name: 'Lanie', age: 13, grade: 7 };
@@ -18,14 +18,15 @@ function($q,$log,$timeout)
     mockData.push({ id: 2, name: 'Freeman, John', number: 23, children: children });
    this.search=function(searchfor)
 {
-$log.debug('searching..');
+
      var defer=$q.defer();
      
      var data=mockData;
+    
      
     setTimeout(function(){   
- $log.debug('resolving');
- defer.resolve(data);},1000);
+  defer.resolve(data);
+},1000);
  
      return defer.promise;
 };

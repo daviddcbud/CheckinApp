@@ -10,7 +10,9 @@
     <script src="Scripts/modernizr-2.6.2.js"></script>
 
 </head>
-<body ng-app="appModule">
+<body ng-app="appModule" ng-controller="ShellCtrl">
+<div ng-if="shellmodel.alert !=''" id="alert" class="alert alert-danger">{{shellmodel.alert}}</div>
+    
     <div wc-overlay wc-overlay-delay="300">
         <img src="Content/loading.gif" /><br />
         Loading..
@@ -31,6 +33,8 @@
     <script src="Scripts/angular-animate.js"></script>
     <script src="app/app.js"></script>
     <script src="app/routes.js"></script>
+<script src="app/shareddata.service.js"></script>
+<script src="app/class.mock.service.js"></script>
     <script src="app/search/search.service.js"></script>
   <script src="app/search/mock.search.services.js"></script>
     <script src="app/shell.controller.js"></script>

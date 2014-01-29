@@ -4,7 +4,7 @@
 		this.search = function (searchfor) {
 			var defer = $q.defer();
 			$http.get('/api/family?name=' + searchfor).success(function (data) {
-				$log.debug('ok');
+				
 				defer.resolve(data);
 			}
 			).error(function (data) {
