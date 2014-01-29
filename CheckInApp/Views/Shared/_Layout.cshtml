@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html >
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,8 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body ng-app="appModule">
-    
+<body ng-app="appModule" ng-controller="ShellCtrl">
+    <div ng-if="shellmodel.alert !=''" id="alert" class="alert alert-danger">{{shellmodel.alert}}</div>
     <div wc-overlay wc-overlay-delay="300">
         <img src="/Content/loading.gif" /><br />
         Loading..
@@ -17,13 +17,13 @@
     <div class="container body-content" ng-controller="HomeCtrl">
         @RenderBody()
         <div ng-view class="slide-animation" id="ng-view">
-            
+
         </div>
-        
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-route.min.js"></script>
     <script src="~/Scripts/angular-resource.min.js"></script>
@@ -33,7 +33,38 @@
     <script src="~/app/routes.js"></script>
     <script src="~/app/search/search.service.js"></script>
     <script src="~/app/search/mock.search.services.js"></script>
+    <script src="~/app/shell.controller.js"></script>
     <script src="~/app/home/home.controller.js"></script>
     @RenderSection("scripts", required: false)
+
+    <script>
+        
+
+        window.applicationCache.onupdateready = function () {
+            window.applicationCache.swapCache();
+            location.reload();
+
+        };
+        window.applicationCache.onerror = function (e) {
+            updateCacheStatus('Something went wrong while updating the offline version of the application. It will not be available offline.');
+        };
+
+        window.applicationCache.onobsolete = function (e) {
+            updateCacheStatus('The application cannot be updated, no manifest file was found.');
+        };
+
+        window.applicationCache.onprogress = function (e) {
+            var message = 'Downloading offline resources.. ';
+            if (e.lengthComputable) {
+                updateCacheStatus(message + Math.round(e.loaded / e.total * 100) + '%');
+            } else {
+                updateCacheStatus(message);
+            };
+        };
+        function updateCacheStatus(msg) {
+            var el = document.getElementById('alert');
+            el.innerHTML = msg;
+        }
+    </script>
 </body>
 </html>

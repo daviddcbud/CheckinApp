@@ -2,6 +2,8 @@
 'mockSearch', '$timeout',
     function ($scope, $log, SearchService, mockSearch, $timeout) {
 
+       // $scope.$parent.shellmodel.alert = 'from index';
+
         $log.debug('Main controller');
         $scope.model = {};
         $scope.model.searchData = '';
@@ -17,7 +19,7 @@
             }
         });
 
-        var searchService = mockSearch;
+        var searchService = SearchService;
 
         $scope.search = function () {
             $scope.model.searchResults = [];

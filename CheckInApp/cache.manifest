@@ -1,0 +1,24 @@
+﻿CACHE MANIFEST
+# version 1.2
+CACHE:
+Content/bootstrap.min.css
+Content/Site.css
+Content/loading.gif
+/Scripts/modernizr-2.6.2.js
+/Scripts/jquery-1.10.2.min.js
+/Scripts/bootstrap.min.js
+/Scripts/angular.min.js
+/Scripts/angular-route.min.js
+/Scripts/angular-resource.min.js
+/Scripts/angular-animate.min.js
+/app/vendor/angular.overlay.js
+/app/app.js
+/app/routes.js
+/app/shell.controller.js
+/app/search/mock.search.services.js
+/app/search/search.service.js
+/app/home/home.controller.js
+/app/home/index.html
+/app/home/mock.index.html
+
+
